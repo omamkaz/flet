@@ -7,6 +7,8 @@ license = "Apache-2.0"
 
 [tool.poetry.dependencies]
 python = "<3.12,>=3.8"
+mkdocs-material = "^9.5.30"
+mkdocstrings = { extras = ["python"], version = "^0.25.2" }
 
 [tool.poetry.group.dev.dependencies]
 flet-core = {path = "packages/flet-core", develop = true}

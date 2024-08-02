@@ -7,11 +7,18 @@ from flet_core.ref import Ref
 class Divider(Control):
     """
     A thin horizontal line, with padding on either side.
-
     In the material design language, this represents a divider.
 
-    Example:
-    ```
+    Args:
+        height (Optional[float], optional): The height of the divider.
+        thickness (Optional[float], optional): The thickness of the divider.
+        color (Optional[str], optional): The color of the divider.
+        leading_indent (Optional[float], optional): The leading indent of the divider.
+        trailing_indent (Optional[float], optional): The trailing indent of the divider.
+
+
+    # Examples
+    ```python
     import flet as ft
 
 
@@ -41,6 +48,8 @@ class Divider(Control):
     ```
 
     -----
+
+    Live example: https://flet-controls-gallery.fly.dev/layout/divider
 
     Online docs: https://flet.dev/docs/controls/divider
     """
