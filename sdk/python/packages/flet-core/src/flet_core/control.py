@@ -82,7 +82,14 @@ class Control:
     def build(self):
         pass
 
-    def before_update(self):
+    def before_update(self) -> None:
+        """
+        Mainly used when creating custom controls.
+
+        It is called before this control is updated.
+
+        Make sure not to call `update()` method within `before_update()`.
+        """
         pass
 
     def _before_build_command(self) -> None:
@@ -94,7 +101,7 @@ class Control:
     def will_unmount(self):
         pass
 
-    def _get_children(self) -> "List[Control]":
+    def _get_children(self) -> List["Control"]:
         return []
 
     def _get_control_name(self) -> str:
@@ -197,7 +204,7 @@ class Control:
 
     # _previous_children
     @property
-    def _previous_children(self):
+    def _previous_children(self) -> List:
         return self.__previous_children
 
     # _id
@@ -211,11 +218,14 @@ class Control:
 
     # page
     @property
-    def page(self) -> "Optional[Page]":
+    def page(self) -> Optional["Page"]:
+        """
+        The page this control is attached to.
+        """
         return self.__page
 
     @page.setter
-    def page(self, page: "Optional[Page]"):
+    def page(self, page: Optional["Page"]):
         self.__page = page
 
     # uid
@@ -226,6 +236,14 @@ class Control:
     # expand
     @property
     def expand(self) -> Optional[Union[bool, int]]:
+        """
+        Whether the child control can expand to fill the available space. Value can be a boolean or an integer
+        (an "expand factor" specifying how to divide a free space with other expanded child controls).
+
+        Effective only for children of the following: [`Column`](/docs/controls/column), [`Row`](/docs/controls/row), [Page](/docs/controls/page), [View](/docs/controls/view).
+
+        For more information and examples about `expand` property see [`Column`](/docs/controls/column#expanding-children) or [`Row`](/docs/controls/row#expanding-children).
+        """
         return self.__expand
 
     @expand.setter
@@ -238,6 +256,13 @@ class Control:
     # expand_loose
     @property
     def expand_loose(self) -> bool:
+        """
+        Whether the child control of a [`Column`](/docs/controls/column) or a [`Row`](/docs/controls/row) will be given
+        the flexibility to expand to fill the available space in the main axis (e.g., horizontally for a `Row` or
+        vertically for a `Column` ), but will not be required to fill the available space.
+
+        Effective only if `expand` is `True`.
+        """
         return self._get_attr("expandLoose", data_type="bool", def_value=False)
 
     @expand_loose.setter
@@ -247,6 +272,9 @@ class Control:
     # rtl
     @property
     def rtl(self) -> bool:
+        """
+        Whether the text direction is right-to-left.
+        """
         return self._get_attr("rtl", data_type="bool", def_value=False)
 
     @rtl.setter
@@ -265,6 +293,9 @@ class Control:
     # opacity
     @property
     def opacity(self) -> float:
+        """
+        The opacity of the control.
+        """
         return self._get_attr("opacity", data_type="float", def_value=1.0)
 
     @opacity.setter
@@ -277,6 +308,9 @@ class Control:
     # tooltip
     @property
     def tooltip(self):
+        """
+        The tooltip text to be shown when this control is hovered over.
+        """
         return self._get_attr("tooltip")
 
     @tooltip.setter
@@ -286,6 +320,11 @@ class Control:
     # visible
     @property
     def visible(self) -> bool:
+        """
+        Whether this control should be visible on the page canvas.
+        Has effect on this control and all its possible descendants.
+        Invisible controls can't be focused or selected with a keyboard or mouse and they do not emit any events.
+        """
         return self._get_attr("visible", data_type="bool", def_value=True)
 
     @visible.setter
@@ -295,6 +334,16 @@ class Control:
     # disabled
     @property
     def disabled(self) -> bool:
+        """
+        Whether this control is disabled.
+        Has effect on this control and all its possible descendants.
+
+        For example, to create a disabled button:
+
+        ```python
+        ft.ElevatedButton("Disabled Button", disabled=True)
+        ```
+        """
         return self._get_attr("disabled", data_type="bool", def_value=False)
 
     @disabled.setter
@@ -304,6 +353,9 @@ class Control:
     # data
     @property
     def data(self) -> Optional[Any]:
+        """
+        Arbitrary data of any type that can be attached to a control.
+        """
         return self.__data
 
     @data.setter
@@ -312,6 +364,9 @@ class Control:
 
     # public methods
     def update(self) -> None:
+        """
+        Update this control.
+        """
         assert (
             self.__page
         ), f"{self.__class__.__qualname__} Control must be added to the page first"

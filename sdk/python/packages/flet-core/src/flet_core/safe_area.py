@@ -114,6 +114,11 @@ class SafeArea(ConstrainedControl, AdaptiveControl):
     # left
     @property
     def left(self) -> bool:
+        """
+        Whether to avoid system intrusions on the left.
+
+        Defaults to `True`.
+        """
         return self._get_attr("left", data_type="bool", def_value=True)
 
     @left.setter
@@ -123,6 +128,11 @@ class SafeArea(ConstrainedControl, AdaptiveControl):
     # top
     @property
     def top(self) -> bool:
+        """
+        Whether to avoid system intrusions at the top of the screen, typically the system status bar.
+
+        Defaults to `True`.
+        """
         return self._get_attr("top", data_type="bool", def_value=True)
 
     @top.setter
@@ -132,6 +142,11 @@ class SafeArea(ConstrainedControl, AdaptiveControl):
     # right
     @property
     def right(self) -> bool:
+        """
+        Whether to avoid system intrusions on the right.
+
+        Defaults to `True`.
+        """
         return self._get_attr("right", data_type="bool", def_value=True)
 
     @right.setter
@@ -141,6 +156,11 @@ class SafeArea(ConstrainedControl, AdaptiveControl):
     # bottom
     @property
     def bottom(self) -> bool:
+        """
+        Whether to avoid system intrusions on the bottom side of the screen.
+
+        Defaults to `True`.
+        """
         return self._get_attr("bottom", data_type="bool", def_value=True)
 
     @bottom.setter
@@ -150,6 +170,14 @@ class SafeArea(ConstrainedControl, AdaptiveControl):
     # maintain_bottom_view_padding
     @property
     def maintain_bottom_view_padding(self) -> bool:
+        """
+        Whether the `SafeArea` should maintain the bottom `MediaQueryData.viewPadding` instead of the bottom `MediaQueryData.padding`. Defaults to `False`.
+
+        For example, if there is an onscreen keyboard displayed above the SafeArea, the padding can be maintained below
+        the obstruction rather than being consumed. This can be helpful in cases where your layout contains flexible
+        controls, which could visibly move when opening a software keyboard due to the change in the padding value.
+        Setting this to true will avoid the UI shift.
+        """
         return self._get_attr(
             "maintainBottomViewPadding", data_type="bool", def_value=False
         )
@@ -161,6 +189,9 @@ class SafeArea(ConstrainedControl, AdaptiveControl):
     # content
     @property
     def content(self) -> Control:
+        """
+        A `Control` to display inside safe area.
+        """
         return self.__content
 
     @content.setter
@@ -170,6 +201,10 @@ class SafeArea(ConstrainedControl, AdaptiveControl):
     # minimum
     @property
     def minimum(self) -> PaddingValue:
+        """
+        This minimum padding to apply.
+        The greater of the minimum insets and the media padding will be applied.
+        """
         warnings.warn(
             f"minimum is deprecated since version 0.23.0 "
             f"and will be removed in version 0.26.0. Use minimum_padding instead.",
@@ -192,6 +227,10 @@ class SafeArea(ConstrainedControl, AdaptiveControl):
     # minimum_padding
     @property
     def minimum_padding(self) -> PaddingValue:
+        """
+        This minimum padding to apply.
+        The greater of the minimum insets and the media padding will be applied.
+        """
         return self.__minimum_padding
 
     @minimum_padding.setter

@@ -1,0 +1,1 @@
+::: flet_core.animated_switcher.AnimatedSwitcher

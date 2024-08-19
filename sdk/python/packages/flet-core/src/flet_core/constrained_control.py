@@ -106,7 +106,7 @@ class ConstrainedControl(Control):
     @property
     def width(self) -> OptionalNumber:
         """
-        Control width.
+        The width of the control in virtual pixels.
         """
         return self._get_attr("width")
 
@@ -117,6 +117,9 @@ class ConstrainedControl(Control):
     # height
     @property
     def height(self) -> OptionalNumber:
+        """
+        The height of the control in virtual pixels.
+        """
         return self._get_attr("height")
 
     @height.setter
@@ -126,6 +129,11 @@ class ConstrainedControl(Control):
     # left
     @property
     def left(self) -> OptionalNumber:
+        """
+        The distance that the child's left edge is inset from the left of the stack.
+
+        Effective inside a [`Stack`](/docs/controls/stack) only.
+        """
         return self._get_attr("left")
 
     @left.setter
@@ -139,11 +147,21 @@ class ConstrainedControl(Control):
 
     @top.setter
     def top(self, value: OptionalNumber):
+        """
+        The distance that the child's top edge is inset from the top of the stack.
+
+        Effective inside a [`Stack`](/docs/controls/stack) only.
+        """
         self._set_attr("top", value)
 
     # right
     @property
     def right(self) -> OptionalNumber:
+        """
+        The distance that the child's right edge is inset from the right of the stack.
+
+        Effective inside a [`Stack`](/docs/controls/stack) only.
+        """
         return self._get_attr("right")
 
     @right.setter
@@ -153,6 +171,11 @@ class ConstrainedControl(Control):
     # bottom
     @property
     def bottom(self) -> OptionalNumber:
+        """
+        The distance that the child's bottom edge is inset from the bottom of the stack.
+
+        Effective inside a [`Stack`](/docs/controls/stack) only.
+        """
         return self._get_attr("bottom")
 
     @bottom.setter
@@ -162,6 +185,26 @@ class ConstrainedControl(Control):
     # rotate
     @property
     def rotate(self) -> RotateValue:
+        """
+        Transforms control using a rotation around the center.
+
+        The value of `rotate` property could be one of the following types:
+
+        * `number` - a rotation in clockwise radians. Full circle `360°` is `math.pi * 2` radians, `90°` is `pi / 2`, `45°` is `pi / 4`, etc.
+        * `transform.Rotate` - allows to specify rotation `angle` as well as `alignment` - the location of rotation center.
+
+        For example:
+
+        ```python
+        ft.Image(
+            src="https://picsum.photos/100/100",
+            width=100,
+            height=100,
+            border_radius=5,
+            rotate=Rotate(angle=0.25 * pi, alignment=ft.alignment.center_left)
+        )
+        ```
+        """
         return self.__rotate
 
     @rotate.setter
@@ -171,6 +214,33 @@ class ConstrainedControl(Control):
     # scale
     @property
     def scale(self) -> ScaleValue:
+        """
+        Scale control along the 2D plane. Default scale factor is `1.0` - control is not scaled. `0.5` - the control is twice smaller, `2.0` - the control is twice larger.
+
+        Different scale multipliers can be specified for `x` and `y` axis, but setting `Control.scale` property to an instance of `transform.Scale` class:
+
+        ```python
+        from dataclasses import field
+
+        class Scale:
+            scale: float = field(default=None)
+            scale_x: float = field(default=None)
+            scale_y: float = field(default=None)
+            alignment: Alignment = field(default=None)
+        ```
+
+        Either `scale` or `scale_x` and `scale_y` could be specified, but not all of them, for example:
+
+        ```python
+        ft.Image(
+            src="https://picsum.photos/100/100",
+            width=100,
+            height=100,
+            border_radius=5,
+            scale=Scale(scale_x=2, scale_y=0.5)
+        )
+        ```
+        """
         return self.__scale
 
     @scale.setter
@@ -180,6 +250,38 @@ class ConstrainedControl(Control):
     # offset
     @property
     def offset(self) -> OffsetValue:
+        """
+        Applies a translation transformation before painting the control.
+
+        The translation is expressed as a `transform.Offset` scaled to the control's size. For example, an `Offset` with a `x` of `0.25` will result in a horizontal translation of one quarter the width of the control.
+
+        The following example displays container at `0, 0` top left corner of a stack as transform applies `-1 * 100, -1 * 100` (`offset * control_size`) horizontal and vertical translations to the control:
+
+        ```python
+        import flet as ft
+
+        def main(page: ft.Page):
+
+            page.add(
+                ft.Stack(
+                    [
+                        ft.Container(
+                            bgcolor="red",
+                            width=100,
+                            height=100,
+                            left=100,
+                            top=100,
+                            offset=ft.transform.Offset(-1, -1),
+                        )
+                    ],
+                    width=1000,
+                    height=1000,
+                )
+            )
+
+        ft.app(main)
+        ```
+        """
         return self.__offset
 
     @offset.setter
@@ -189,6 +291,9 @@ class ConstrainedControl(Control):
     # aspect_ratio
     @property
     def aspect_ratio(self) -> OptionalNumber:
+        """
+        The aspect ratio (width to height) of this control.
+        """
         return self._get_attr("aspectRatio")
 
     @aspect_ratio.setter

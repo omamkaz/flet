@@ -1,0 +1,1 @@
+::: flet_core.navigation_rail.NavigationRail

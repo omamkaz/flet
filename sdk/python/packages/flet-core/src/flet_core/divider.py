@@ -9,18 +9,9 @@ class Divider(Control):
     A thin horizontal line, with padding on either side.
     In the material design language, this represents a divider.
 
-    Args:
-        height (Optional[float], optional): The height of the divider.
-        thickness (Optional[float], optional): The thickness of the divider.
-        color (Optional[str], optional): The color of the divider.
-        leading_indent (Optional[float], optional): The leading indent of the divider.
-        trailing_indent (Optional[float], optional): The trailing indent of the divider.
-
-
     # Examples
     ```python
     import flet as ft
-
 
     def main(page: ft.Page):
 
@@ -42,16 +33,15 @@ class Divider(Control):
             ),
         )
 
-
     ft.app(target=main)
 
     ```
 
     -----
 
-    Live example: https://flet-controls-gallery.fly.dev/layout/divider
+    Live example: [https://flet-controls-gallery.fly.dev/layout/divider](https://flet-controls-gallery.fly.dev/layout/divider)
 
-    Online docs: https://flet.dev/docs/controls/divider
+    Online docs: [https://flet.dev/docs/controls/divider](https://flet.dev/docs/controls/divider)
     """
 
     def __init__(
@@ -90,6 +80,9 @@ class Divider(Control):
     # height
     @property
     def height(self) -> OptionalNumber:
+        """
+        The height of this divider.
+        """
         return self._get_attr("height", data_type="float")
 
     @height.setter
@@ -100,6 +93,9 @@ class Divider(Control):
     # thickness
     @property
     def thickness(self) -> OptionalNumber:
+        """
+        The thickness of this divider.
+        """
         return self._get_attr("thickness", data_type="float")
 
     @thickness.setter
@@ -110,6 +106,9 @@ class Divider(Control):
     # color
     @property
     def color(self) -> Optional[str]:
+        """
+        The color of this divider.
+        """
         return self._get_attr("color")
 
     @color.setter
@@ -119,6 +118,9 @@ class Divider(Control):
     # leading_indent
     @property
     def leading_indent(self) -> OptionalNumber:
+        """
+        The leading indentation of this divider.
+        """
         return self._get_attr("leadingIndent", data_type="float")
 
     @leading_indent.setter
@@ -129,6 +131,9 @@ class Divider(Control):
     # trailing_indent
     @property
     def trailing_indent(self) -> OptionalNumber:
+        """
+        The trailing indentation of this divider.
+        """
         return self._get_attr("trailingIndent", data_type="float")
 
     @trailing_indent.setter

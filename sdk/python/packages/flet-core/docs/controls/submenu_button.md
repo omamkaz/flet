@@ -1,0 +1,1 @@
+::: flet_core.submenu_button.SubmenuButton

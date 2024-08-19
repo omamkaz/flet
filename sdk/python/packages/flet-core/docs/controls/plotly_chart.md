@@ -1,0 +1,1 @@
+::: flet_core.plotly_chart.PlotlyChart

@@ -122,6 +122,11 @@ class AutofillGroup(Control):
     # content
     @property
     def content(self) -> Control:
+        """
+        The content control of this group.
+
+        Value is of type `Control`.
+        """
         return self.__content
 
     @content.setter
@@ -131,6 +136,13 @@ class AutofillGroup(Control):
     # dispose_action
     @property
     def dispose_action(self) -> Optional[AutofillGroupDisposeAction]:
+        """
+        The action to be run when this `AutofillGroup` is the topmost `AutofillGroup` and it's being disposed, in order to clean
+        up the current autofill context.
+
+        Value is of type [`AutofillGroupDisposeAction`](/docs/reference/types/autofillgroupdisposeaction) and defaults
+        to `AutofillGroupDisposeAction.COMMIT`.
+        """
         return self.__dispose_action
 
     @dispose_action.setter

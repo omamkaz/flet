@@ -1,0 +1,1 @@
+::: flet_core.haptic_feedback.HapticFeedback

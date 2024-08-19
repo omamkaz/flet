@@ -1,0 +1,1 @@
+::: flet_core.cupertino_sliding_segmented_button.CupertinoSlidingSegmentedButton

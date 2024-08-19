@@ -1,0 +1,1 @@
+::: flet_core.flet_app.FletApp

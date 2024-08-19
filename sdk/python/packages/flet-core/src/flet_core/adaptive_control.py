@@ -10,6 +10,9 @@ class AdaptiveControl(Control):
     # adaptive
     @property
     def adaptive(self) -> bool:
+        """
+        Whether this control should be platform-adaptive.
+        """
         return self._get_attr("adaptive", data_type="bool", def_value=False)
 
     @adaptive.setter

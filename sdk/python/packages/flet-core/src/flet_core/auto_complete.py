@@ -62,11 +62,23 @@ class AutoComplete(Control):
     # selected_index
     @property
     def selected_index(self) -> Optional[int]:
+        """
+        The index of the selected suggestion in the list of `suggestions`.
+
+        This property is read-only and `None` at initialization, until a suggestion is selected for the first time.
+
+        Value is of type `int`.
+        """
         return self._get_attr("selectedIndex", data_type="int")
 
     # suggestions_max_height
     @property
     def suggestions_max_height(self) -> float:
+        """
+        The maximum visual height of the suggestions list.
+
+        Value is of type `float` and defaults to `200.0`.
+        """
         return self._get_attr(
             "suggestionsMaxHeight", data_type="float", def_value=200.0
         )
@@ -79,15 +91,28 @@ class AutoComplete(Control):
     # suggestions
     @property
     def suggestions(self) -> Optional[List[AutoCompleteSuggestion]]:
+        """
+        A list of [`AutoCompleteSuggestion`](/docs/reference/types/autocompletesuggestion) controls representing the suggestions to be displayed.
+
+        **Note:**
+
+        - The internal filtration process of the suggestions (based on their `key`s) with respect to the user's input is case-insensitive because the comparison is done in lowercase.
+        - A valid `AutoCompleteSuggestion` must have at least a `key` or `value` specified, else it will be ignored. If only `key` is provided, `value` will be set to `key` as fallback and vice versa.
+        """
         return self.__suggestions
 
     @suggestions.setter
-    def suggestions(self, value: Optional[List[str]]):
+    def suggestions(self, value: Optional[List[AutoCompleteSuggestion]]):
         self.__suggestions = value or []
 
     # on_select
     @property
-    def on_select(self):
+    def on_select(self) -> OptionalEventCallable["AutoCompleteSelectEvent"]:
+        """
+        Fires when a suggestion is selected.
+
+        Event handler is of type [`AutoCompleteSelectEvent`](/docs/reference/types/autocompleteselectevent).
+        """
         return self._get_event_handler("select")
 
     @on_select.setter

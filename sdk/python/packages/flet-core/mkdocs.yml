@@ -1,0 +1,190 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: Flet Docs
+site_url: https://flet.github.io/docs/
+repo_name: flet-dev/flet
+repo_url: https://github.com/flet-dev/flet
+theme:
+  name: material
+
+extra:
+  version:
+    provider: mike
+
+nav:
+  - Home: index.md
+  - Documentation:
+      - Controls:
+          - AlertDialog: controls/alert_dialog.md
+          - AnimatedSwitcher: controls/animated_switcher.md
+          - AppBar: controls/app_bar.md
+          - Audio: controls/audio.md
+          - AudioRecorder: controls/audio_recorder.md
+          - AutoComplete: controls/auto_complete.md
+          - AutofillGroup: controls/autofill_group.md
+          - Badge: controls/badge.md
+          - Banner: controls/banner.md
+          - BottomAppBar: controls/bottom_app_bar.md
+          - BottomSheet: controls/bottom_sheet.md
+          - Canvas: controls/canvas.md
+          - Card: controls/card.md
+          - Checkbox: controls/checkbox.md
+          - Chip: controls/chip.md
+          - CircleAvatar: controls/circle_avatar.md
+          - Column: controls/column.md
+          - Container: controls/container.md
+          - CupertinoActionSheet: controls/cupertino_action_sheet.md
+          - CupertinoActionSheetAction: controls/cupertino_action_sheet_action.md
+          - CupertinoActivityIndicator: controls/cupertino_activity_indicator.md
+          - CupertinoAlertDialog: controls/cupertino_alert_dialog.md
+          - Container: controls/cupertino_app_bar.md
+          - CupertinoBottomSheet: controls/cupertino_bottom_sheet.md
+          - CupertinoButton: controls/cupertino_button.md
+          - CupertinoCheckbox: controls/cupertino_checkbox.md
+          - CupertinoContextMenu: controls/cupertino_context_menu.md
+          - CupertinoContextMenuAction: controls/cupertino_context_menu_action.md
+          - CupertinoDatePicker: controls/cupertino_date_picker.md
+          - CupertinoDialogAction: controls/cupertino_dialog_action.md
+          - CupertinoFilledButton: controls/cupertino_filled_button.md
+          - CupertinoListTile: controls/cupertino_list_tile.md
+          - CupertinoNavigationBar: controls/cupertino_navigation_bar.md
+          - CupertinoPicker: controls/cupertino_picker.md
+          - CupertinoRadio: controls/cupertino_radio.md
+          - CupertinoSegmentedControl: controls/cupertino_segmented_button.md
+          - CupertinoSlider: controls/cupertino_slider.md
+          - CupertinoSlidingSegmentedControl: controls/cupertino_sliding_segmented_button.md
+          - CupertinoSwitch: controls/cupertino_switch.md
+          - CupertinoTextField: controls/cupertino_textfield.md
+          - CupertinoTimerPicker: controls/cupertino_timer_picker.md
+          - DataTable: controls/datatable.md
+          - DatePicker: controls/date_picker.md
+          - Dismissible: controls/dismissible.md
+          - Divider: controls/divider.md
+          - DragTarget: controls/drag_target.md
+          - Draggable: controls/draggable.md
+          - DropdownButton: controls/dropdown.md
+          - ElevatedButton: controls/elevated_button.md
+          - ExpansionPanel: controls/expansion_panel.md
+          - ExpansionTile: controls/expansion_tile.md
+          - FilePicker: controls/file_picker.md
+          - FilledButton: controls/filled_button.md
+          - FilledTonalButton: controls/filled_tonal_button.md
+          - Flashlight: controls/flashlight.md
+          - FletApp: controls/flet_app.md
+          - FloatingActionButton: controls/floating_action_button.md
+          - Geolocator: controls/geolocator.md
+          - GestureDetector: controls/gesture_detector.md
+          - GridView: controls/grid_view.md
+          - HapticFeedback: controls/haptic_feedback.md
+          - Icon: controls/icon.md
+          - IconButton: controls/icon_button.md
+          - Image: controls/image.md
+          - InlineSpan: controls/inline_span.md
+          - ListTile: controls/list_tile.md
+          - ListView: controls/list_view.md
+          - Lottie: controls/lottie.md
+          - Markdown: controls/markdown.md
+          - MatplotlibChart: controls/matplotlib_chart.md
+          - MenuBar: controls/menu_bar.md
+          - MenuItemButton: controls/menu_item_button.md
+          - MergeSemantics: controls/merge_semantics.md
+          - NavigationBar: controls/navigation_bar.md
+          - NavigationDrawer: controls/navigation_drawer.md
+          - NavigationRail: controls/navigation_rail.md
+          - OutlinedButton: controls/outlined_button.md
+          - Pagelet: controls/pagelet.md
+          - PermissionHandler: controls/permission_handler.md
+          - PlotlyChart: controls/plotly_chart.md
+          - PopupMenuButton: controls/popup_menu_button.md
+          - ProgressBar: controls/progress_bar.md
+          - ProgressRing: controls/progress_ring.md
+          - Radio: controls/radio.md
+          - RadioGroup: controls/radio_group.md
+          - RangeSlider: controls/range_slider.md
+          - Ref: controls/ref.md
+          - ResponsiveRow: controls/responsive_row.md
+          - Rive: controls/rive.md
+          - Row: controls/row.md
+          - SafeArea: controls/safe_area.md
+          - SearchBar: controls/search_bar.md
+          - SegmentedButton: controls/segmented_button.md
+          - SelectionArea: controls/selection_area.md
+          - Semantics: controls/semantics.md
+          - SemanticsService: controls/semantics_service.md
+          - SessionStorage: controls/session_storage.md
+          - ShaderMask: controls/shader_mask.md
+          - ShakeDetector: controls/shake_detector.md
+          - Slider: controls/slider.md
+          - SnackBar: controls/snack_bar.md
+          - Stack: controls/stack.md
+          - SubmenuButton: controls/submenu_button.md
+          - Switch: controls/switch.md
+          - TemplateRoute: controls/template_route.md
+          - Text: controls/text.md
+          - TextButton: controls/text_button.md
+          - TextSpan: controls/text_span.md
+          - TextField: controls/textfield.md
+          - Theme: controls/theme.md
+          - TimePicker: controls/time_picker.md
+          - Tooltip: controls/tooltip.md
+          - TransparentPointer: controls/transparent_pointer.md
+          - UserControl: controls/user_control.md
+          - VerticalDivider: controls/vertical_divider.md
+          - Video: controls/video.md
+          - View: controls/view.md
+          - WebView: controls/webview.md
+          - WindowDragArea: controls/window_drag_area.md
+
+# https://www.mkdocs.org/user-guide/configuration/#validation
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+
+
+plugins:
+  - mike:
+      alias_type: symlink
+      canonical_version: latest
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_docstring_parameters: false
+            show_docstring_returns: false
+            inherited_members: true
+            show_source: false
+            show_root_heading: false
+            group_by_category: true
+            summary: true
+            signature_crossrefs: true
+
+
+# - external-markdown
+
+watch:
+  - src
+  - docs
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+      title: Page contents
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  # - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.extra
+

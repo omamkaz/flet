@@ -1,0 +1,1 @@
+::: flet_core.icon_button.IconButton

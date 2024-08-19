@@ -11,7 +11,6 @@ from flet_core.types import (
     MainAxisAlignment,
     PaddingValue,
     OptionalEventCallable,
-    OptionalControlEventCallable,
 )
 
 
@@ -19,8 +18,8 @@ class AlertDialog(AdaptiveControl):
     """
     An alert dialog informs the user about situations that require acknowledgement. An alert dialog has an optional title and an optional list of actions. The title is displayed above the content and the actions are displayed below the content.
 
-    Example:
-    ```
+    # Example
+    ```python
     import flet as ft
 
 
@@ -180,6 +179,11 @@ class AlertDialog(AdaptiveControl):
     # open
     @property
     def open(self) -> bool:
+        """
+        Set to `True` to display a dialog.
+
+        Value is of type `bool` and defaults to `False`.
+        """
         return self._get_attr("open", data_type="bool", def_value=False)
 
     @open.setter
@@ -189,6 +193,11 @@ class AlertDialog(AdaptiveControl):
     # bgcolor
     @property
     def bgcolor(self) -> Optional[str]:
+        """
+        The background [color](/docs/reference/colors) of the dialog's surface.
+
+        Value is of type `str`.
+        """
         return self._get_attr("bgcolor")
 
     @bgcolor.setter
@@ -198,6 +207,11 @@ class AlertDialog(AdaptiveControl):
     # shadow_color
     @property
     def shadow_color(self) -> Optional[str]:
+        """
+        The [color](/docs/reference/colors) used to paint a drop shadow under the dialog, which reflects the dialog's elevation.
+
+        Value is of type `str`.
+        """
         return self._get_attr("shadowColor")
 
     @shadow_color.setter
@@ -207,6 +221,11 @@ class AlertDialog(AdaptiveControl):
     # surface_tint_color
     @property
     def surface_tint_color(self) -> Optional[str]:
+        """
+        The [color](/docs/reference/colors) used as a surface tint overlay on the dialog's background color, which reflects the dialog's elevation.
+
+        Value is of type `str`.
+        """
         return self._get_attr("surfaceTintColor")
 
     @surface_tint_color.setter
@@ -216,6 +235,11 @@ class AlertDialog(AdaptiveControl):
     # icon_color
     @property
     def icon_color(self) -> Optional[str]:
+        """
+        The [color](/docs/reference/colors) of the icon displayed in the dialog.
+
+        Value is of type `str`.
+        """
         return self._get_attr("iconColor")
 
     @icon_color.setter
@@ -225,6 +249,11 @@ class AlertDialog(AdaptiveControl):
     # elevation
     @property
     def elevation(self) -> OptionalNumber:
+        """
+        Defines the elevation (z-coordinate) at which the dialog should appear.
+
+        Value is of type [`OptionalNumber`](/docs/reference/types/aliases#optionalnumber).
+        """
         return self._get_attr("elevation", data_type="float")
 
     @elevation.setter
@@ -234,51 +263,25 @@ class AlertDialog(AdaptiveControl):
     # actions_overflow_button_spacing
     @property
     def actions_overflow_button_spacing(self) -> OptionalNumber:
+        """
+        Spacing between the action buttons when they overflow.
+
+        Value is of type [`OptionalNumber`](/docs/reference/types/aliases#optionalnumber).
+        """
         return self._get_attr("actionsOverflowButtonSpacing", data_type="float")
 
     @actions_overflow_button_spacing.setter
     def actions_overflow_button_spacing(self, value: OptionalNumber):
         self._set_attr("actionsOverflowButtonSpacing", value)
 
-    # scrollable
-    @property
-    def scrollable(self) -> bool:
-        return self._get_attr("scrollable", data_type="bool", def_value=False)
-
-    @scrollable.setter
-    def scrollable(self, value: Optional[bool]):
-        self._set_attr("scrollable", value)
-
-    # alignment
-    @property
-    def alignment(self) -> Optional[Alignment]:
-        return self.__alignment
-
-    @alignment.setter
-    def alignment(self, value: Optional[Alignment]):
-        self.__alignment = value
-
-    # content_text_style
-    @property
-    def content_text_style(self) -> Optional[TextStyle]:
-        return self.__content_text_style
-
-    @content_text_style.setter
-    def content_text_style(self, value: Optional[TextStyle]):
-        self.__content_text_style = value
-
-    # title_text_style
-    @property
-    def title_text_style(self) -> Optional[TextStyle]:
-        return self.__title_text_style
-
-    @title_text_style.setter
-    def title_text_style(self, value: Optional[TextStyle]):
-        self.__title_text_style = value
-
     # modal
     @property
     def modal(self) -> bool:
+        """
+        If `True`, the dialog will be modal and block user interaction with other parts of the app.
+
+        Value is of type `bool` and defaults to `False`.
+        """
         return self._get_attr("modal", data_type="bool", def_value=False)
 
     @modal.setter
@@ -288,139 +291,237 @@ class AlertDialog(AdaptiveControl):
     # title
     @property
     def title(self) -> Optional[Control]:
-        return self.__title
+        """
+        Optional title widget for the dialog.
+
+        Value is of type [`Optional[Control]`](/docs/reference/types/aliases#optionalcontrol).
+        """
+        return self._get_attr("title")
 
     @title.setter
     def title(self, value: Optional[Control]):
-        self.__title = value
-
-    # icon
-    @property
-    def icon(self) -> Optional[Control]:
-        return self.__icon
-
-    @icon.setter
-    def icon(self, value: Optional[Control]):
-        self.__icon = value
+        self._set_attr("title", value)
 
     # title_padding
     @property
     def title_padding(self) -> PaddingValue:
-        return self.__title_padding
+        """
+        Padding around the title widget.
+
+        Value is of type [`PaddingValue`](/docs/reference/types/aliases#paddingvalue) and defaults to `None`.
+        """
+        return self._get_attr("titlePadding", data_type="padding")
 
     @title_padding.setter
     def title_padding(self, value: PaddingValue):
-        self.__title_padding = value
+        self._set_attr("titlePadding", value)
 
     # content
     @property
     def content(self) -> Optional[Control]:
-        return self.__content
+        """
+        The main content of the dialog.
+
+        Value is of type [`Optional[Control]`](/docs/reference/types/aliases#optionalcontrol).
+        """
+        return self._get_attr("content")
 
     @content.setter
     def content(self, value: Optional[Control]):
-        self.__content = value
+        self._set_attr("content", value)
 
     # content_padding
     @property
     def content_padding(self) -> PaddingValue:
-        return self.__content_padding
+        """
+        Padding around the content widget.
+
+        Value is of type [`PaddingValue`](/docs/reference/types/aliases#paddingvalue) and defaults to `None`.
+        """
+        return self._get_attr("contentPadding", data_type="padding")
 
     @content_padding.setter
     def content_padding(self, value: PaddingValue):
-        self.__content_padding = value
+        self._set_attr("contentPadding", value)
 
     # actions
     @property
-    def actions(self) -> List[Control]:
-        return self.__actions
+    def actions(self) -> Optional[List[Control]]:
+        """
+        List of actions displayed at the bottom of the dialog.
+
+        Value is of type [`Optional[List[Control]]`](/docs/reference/types/aliases#optionalcontrol).
+        """
+        return self._get_attr("actions")
 
     @actions.setter
     def actions(self, value: Optional[List[Control]]):
-        self.__actions = value if value is not None else []
+        self._set_attr("actions", value)
 
     # actions_padding
     @property
     def actions_padding(self) -> PaddingValue:
-        return self.__actions_padding
+        """
+        Padding around the actions.
+
+        Value is of type [`PaddingValue`](/docs/reference/types/aliases#paddingvalue) and defaults to `None`.
+        """
+        return self._get_attr("actionsPadding", data_type="padding")
 
     @actions_padding.setter
     def actions_padding(self, value: PaddingValue):
-        self.__actions_padding = value
+        self._set_attr("actionsPadding", value)
 
     # actions_alignment
     @property
     def actions_alignment(self) -> Optional[MainAxisAlignment]:
-        return self.__actions_alignment
+        """
+        Alignment of the action buttons.
+
+        Value is of type [`Optional[MainAxisAlignment]`](/docs/reference/types/aliases#optionalmainaxisalignment) and defaults to `None`.
+        """
+        return self._get_attr("actionsAlignment")
 
     @actions_alignment.setter
     def actions_alignment(self, value: Optional[MainAxisAlignment]):
-        self.__actions_alignment = value
-        self._set_attr(
-            "actionsAlignment",
-            value.value if isinstance(value, MainAxisAlignment) else value,
-        )
+        self._set_attr("actionsAlignment", value)
 
     # shape
     @property
     def shape(self) -> Optional[OutlinedBorder]:
-        return self.__shape
+        """
+        Defines the shape of the dialog's surface.
+
+        Value is of type [`Optional[OutlinedBorder]`](/docs/reference/types/aliases#optionaloutlinedborder) and defaults to `None`.
+        """
+        return self._get_attr("shape")
 
     @shape.setter
     def shape(self, value: Optional[OutlinedBorder]):
-        self.__shape = value
+        self._set_attr("shape", value)
 
     # inset_padding
     @property
     def inset_padding(self) -> PaddingValue:
-        return self.__inset_padding
+        """
+        Padding around the dialog's surface, between the dialog and the edge of its parent.
+
+        Value is of type [`PaddingValue`](/docs/reference/types/aliases#paddingvalue) and defaults to `None`.
+        """
+        return self._get_attr("insetPadding", data_type="padding")
 
     @inset_padding.setter
     def inset_padding(self, value: PaddingValue):
-        self.__inset_padding = value
+        self._set_attr("insetPadding", value)
 
     # icon_padding
     @property
     def icon_padding(self) -> PaddingValue:
-        return self.__icon_padding
+        """
+        Padding around the icon.
+
+        Value is of type [`PaddingValue`](/docs/reference/types/aliases#paddingvalue) and defaults to `None`.
+        """
+        return self._get_attr("iconPadding", data_type="padding")
 
     @icon_padding.setter
     def icon_padding(self, value: PaddingValue):
-        self.__icon_padding = value
+        self._set_attr("iconPadding", value)
 
     # action_button_padding
     @property
     def action_button_padding(self) -> PaddingValue:
-        return self.__action_button_padding
+        """
+        Padding around each action button.
+
+        Value is of type [`PaddingValue`](/docs/reference/types/aliases#paddingvalue) and defaults to `None`.
+        """
+        return self._get_attr("actionButtonPadding", data_type="padding")
 
     @action_button_padding.setter
     def action_button_padding(self, value: PaddingValue):
-        self.__action_button_padding = value
+        self._set_attr("actionButtonPadding", value)
+
+    # alignment
+    @property
+    def alignment(self) -> Optional[Alignment]:
+        """
+        Alignment of the dialog on the screen.
+
+        Value is of type [`Optional[Alignment]`](/docs/reference/types/aliases#optionalalignment) and defaults to `None`.
+        """
+        return self._get_attr("alignment")
+
+    @alignment.setter
+    def alignment(self, value: Optional[Alignment]):
+        self._set_attr("alignment", value)
+
+    # content_text_style
+    @property
+    def content_text_style(self) -> Optional[TextStyle]:
+        """
+        Text style for the content.
+
+        Value is of type [`Optional[TextStyle]`](/docs/reference/types/aliases#optionaltextstyle) and defaults to `None`.
+        """
+        return self._get_attr("contentTextStyle")
+
+    @content_text_style.setter
+    def content_text_style(self, value: Optional[TextStyle]):
+        self._set_attr("contentTextStyle", value)
+
+    # title_text_style
+    @property
+    def title_text_style(self) -> Optional[TextStyle]:
+        """
+        Text style for the title.
+
+        Value is of type [`Optional[TextStyle]`](/docs/reference/types/aliases#optionaltextstyle) and defaults to `None`.
+        """
+        return self._get_attr("titleTextStyle")
+
+    @title_text_style.setter
+    def title_text_style(self, value: Optional[TextStyle]):
+        self._set_attr("titleTextStyle", value)
+
+    # clip_behavior
+    @property
+    def clip_behavior(self) -> Optional[ClipBehavior]:
+        """
+        Determines how the dialog's content is clipped.
+
+        Value is of type [`Optional[ClipBehavior]`](/docs/reference/types/aliases#optionalclipbehavior) and defaults to `None`.
+        """
+        return self._get_attr("clipBehavior")
+
+    @clip_behavior.setter
+    def clip_behavior(self, value: Optional[ClipBehavior]):
+        self._set_attr("clipBehavior", value)
 
     # semantics_label
     @property
     def semantics_label(self) -> Optional[str]:
+        """
+        Optional label for accessibility purposes.
+
+        Value is of type `str`.
+        """
         return self._get_attr("semanticsLabel")
 
     @semantics_label.setter
     def semantics_label(self, value: Optional[str]):
         self._set_attr("semanticsLabel", value)
 
-    # clip_behavior
-    @property
-    def clip_behavior(self) -> Optional[ClipBehavior]:
-        return self.__clip_behavior
-
-    @clip_behavior.setter
-    def clip_behavior(self, value: Optional[ClipBehavior]):
-        self.__clip_behavior = value
-        self._set_enum_attr("clipBehavior", value, ClipBehavior)
-
     # on_dismiss
     @property
-    def on_dismiss(self) -> OptionalControlEventCallable:
-        return self._get_event_handler("dismiss")
+    def on_dismiss(self) -> OptionalEventCallable:
+        """
+        Callback triggered when the dialog is dismissed.
+
+        Value is of type [`OptionalEventCallable`](/docs/reference/types/aliases#optionaleventcallable).
+        """
+        return self._get_attr("onDismiss")
 
     @on_dismiss.setter
-    def on_dismiss(self, handler: OptionalControlEventCallable):
-        self._add_event_handler("dismiss", handler)
+    def on_dismiss(self, value: OptionalEventCallable):
+        self._set_attr("onDismiss", value)

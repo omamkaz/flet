@@ -120,6 +120,11 @@ class BottomAppBar(ConstrainedControl):
     # content
     @property
     def content(self) -> Optional[Control]:
+        """
+        A child Control contained by the BottomAppBar.
+
+        This is typically a widget or set of widgets that are displayed within the BottomAppBar.
+        """
         return self.__content
 
     @content.setter
@@ -129,6 +134,11 @@ class BottomAppBar(ConstrainedControl):
     # surface_tint_color
     @property
     def surface_tint_color(self) -> Optional[str]:
+        """
+        The color used as an overlay on `bgcolor` to indicate elevation.
+
+        If this is `None`, no overlay will be applied. Otherwise, this color will be composited on top of `bgcolor` with an opacity related to `elevation` and used to paint the BottomAppBar's background.
+        """
         return self._get_attr("surfaceTintColor")
 
     @surface_tint_color.setter
@@ -138,6 +148,11 @@ class BottomAppBar(ConstrainedControl):
     # bgcolor
     @property
     def bgcolor(self) -> Optional[str]:
+        """
+        The fill color to use for the BottomAppBar.
+
+        Default color is defined by the current theme.
+        """
         return self._get_attr("bgcolor")
 
     @bgcolor.setter
@@ -147,6 +162,9 @@ class BottomAppBar(ConstrainedControl):
     # shadow_color
     @property
     def shadow_color(self) -> Optional[str]:
+        """
+        The color of the shadow below the BottomAppBar.
+        """
         return self._get_attr("shadowColor")
 
     @shadow_color.setter
@@ -156,6 +174,11 @@ class BottomAppBar(ConstrainedControl):
     # padding
     @property
     def padding(self) -> PaddingValue:
+        """
+        Empty space to inscribe inside a container decoration (background, border).
+
+        Padding is an instance of the `Padding` class. Defaults to `padding.symmetric(vertical=12.0, horizontal=16.0)`.
+        """
         return self.__padding
 
     @padding.setter
@@ -165,6 +188,11 @@ class BottomAppBar(ConstrainedControl):
     # shape
     @property
     def shape(self) -> Optional[NotchShape]:
+        """
+        The notch that is made for the floating action button.
+
+        The shape is an instance of the `NotchShape` class.
+        """
         return self.__shape
 
     @shape.setter
@@ -175,6 +203,11 @@ class BottomAppBar(ConstrainedControl):
     # clip_behavior
     @property
     def clip_behavior(self) -> Optional[ClipBehavior]:
+        """
+        The content will be clipped (or not) according to this option.
+
+        Value is of type `ClipBehavior` and defaults to `ClipBehavior.NONE`.
+        """
         return self.__clip_behavior
 
     @clip_behavior.setter
@@ -185,6 +218,11 @@ class BottomAppBar(ConstrainedControl):
     # notch_margin
     @property
     def notch_margin(self) -> OptionalNumber:
+        """
+        The margin between the FloatingActionButton and the BottomAppBar's notch.
+
+        Can be visible only if `shape` is not `None`.
+        """
         return self._get_attr("notchMargin")
 
     @notch_margin.setter
@@ -194,6 +232,11 @@ class BottomAppBar(ConstrainedControl):
     # elevation
     @property
     def elevation(self) -> OptionalNumber:
+        """
+        This property controls the size of the shadow below the BottomAppBar.
+
+        Defaults to `4`. The value must be `None` or a non-negative number.
+        """
         return self._get_attr("elevation")
 
     @elevation.setter

@@ -175,6 +175,11 @@ class Card(ConstrainedControl, AdaptiveControl):
     # margin
     @property
     def margin(self) -> MarginValue:
+        """
+        The empty space that surrounds the card.
+
+        Value can be one of the following types: `int`, `float`, or `Margin`.
+        """
         return self.__margin
 
     @margin.setter
@@ -184,6 +189,11 @@ class Card(ConstrainedControl, AdaptiveControl):
     # elevation
     @property
     def elevation(self) -> OptionalNumber:
+        """
+        Controls the size of the shadow below the card.
+
+        Defaults to `1.0`. The value must be `None` or a non-negative number.
+        """
         return self._get_attr("elevation")
 
     @elevation.setter
@@ -192,34 +202,54 @@ class Card(ConstrainedControl, AdaptiveControl):
 
     # color
     @property
-    def color(self):
+    def color(self) -> Optional[str]:
+        """
+        The card's background color.
+
+        This is the color used to fill the card's background. Defaults to `None`.
+        """
         return self._get_attr("color")
 
     @color.setter
-    def color(self, value):
+    def color(self, value: Optional[str]):
         self._set_attr("color", value)
 
     # shadow_color
     @property
-    def shadow_color(self):
+    def shadow_color(self) -> Optional[str]:
+        """
+        The color of the shadow below the card.
+
+        This color will be used to paint the shadow effect. Defaults to `None`.
+        """
         return self._get_attr("shadowColor")
 
     @shadow_color.setter
-    def shadow_color(self, value):
+    def shadow_color(self, value: Optional[str]):
         self._set_attr("shadowColor", value)
 
     # surface_tint_color
     @property
-    def surface_tint_color(self):
+    def surface_tint_color(self) -> Optional[str]:
+        """
+        The color used as an overlay on `color` to indicate elevation.
+
+        If this is `None`, no overlay will be applied. Otherwise, this color will be composited on top of `color` with an opacity related to `elevation` and used to paint the card's background. Defaults to `None`.
+        """
         return self._get_attr("surfaceTintColor")
 
     @surface_tint_color.setter
-    def surface_tint_color(self, value):
+    def surface_tint_color(self, value: Optional[str]):
         self._set_attr("surfaceTintColor", value)
 
     # shape
     @property
     def shape(self) -> Optional[OutlinedBorder]:
+        """
+        The shape of the card.
+
+        Value is of type `OutlinedBorder` and defaults to `RoundedRectangleBorder(radius=4.0)`.
+        """
         return self.__shape
 
     @shape.setter
@@ -229,6 +259,11 @@ class Card(ConstrainedControl, AdaptiveControl):
     # content
     @property
     def content(self) -> Optional[Control]:
+        """
+        The Control that should be displayed inside the card.
+
+        This control can only have one child. To lay out multiple children, let this control's child be a control such as `Row`, `Column`, or `Stack`, which have a children property, and then provide the children to that control.
+        """
         return self.__content
 
     @content.setter
@@ -238,6 +273,11 @@ class Card(ConstrainedControl, AdaptiveControl):
     # clip_behavior
     @property
     def clip_behavior(self) -> Optional[ClipBehavior]:
+        """
+        The content will be clipped (or not) according to this option.
+
+        Value is of type `ClipBehavior` and defaults to `ClipBehavior.NONE`.
+        """
         return self.__clip_behavior
 
     @clip_behavior.setter
@@ -248,26 +288,39 @@ class Card(ConstrainedControl, AdaptiveControl):
     # is_semantic_container
     @property
     def is_semantic_container(self) -> bool:
+        """
+        Set to `True` (default) if this card represents a single semantic container, or `False` if it represents a collection of individual semantic nodes (different types of content).
+        """
         return self._get_attr("isSemanticContainer", data_type="bool", def_value=True)
 
     @is_semantic_container.setter
-    def is_semantic_container(self, value):
+    def is_semantic_container(self, value: bool):
         self._set_attr("isSemanticContainer", value)
 
     # show_border_on_foreground
     @property
     def show_border_on_foreground(self) -> bool:
+        """
+        Whether the shape of the border should be painted in front of the content or behind.
+
+        Defaults to `True`.
+        """
         return self._get_attr(
             "showBorderOnForeground", data_type="bool", def_value=True
         )
 
     @show_border_on_foreground.setter
-    def show_border_on_foreground(self, value):
+    def show_border_on_foreground(self, value: bool):
         self._set_attr("showBorderOnForeground", value)
 
     # variant
     @property
     def variant(self) -> Optional[CardVariant]:
+        """
+        Defines the card variant to be used.
+
+        Value is of type `CardVariant` and defaults to `CardVariant.ELEVATED`.
+        """
         return self.__variant
 
     @variant.setter

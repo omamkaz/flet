@@ -1,0 +1,1 @@
+::: flet_core.outlined_button.OutlinedButton
