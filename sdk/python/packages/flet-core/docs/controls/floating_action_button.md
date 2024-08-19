@@ -1,0 +1,1 @@
+::: flet_core.floating_action_button.FloatingActionButton

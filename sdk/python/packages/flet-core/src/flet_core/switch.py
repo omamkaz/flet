@@ -179,6 +179,9 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # value
     @property
     def value(self) -> bool:
+        """
+        Current value of the Switch.
+        """
         return self._get_attr("value", data_type="bool", def_value=False)
 
     @value.setter
@@ -188,6 +191,9 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # label
     @property
     def label(self) -> Optional[str]:
+        """
+        The clickable label to display on the right of the Switch.
+        """
         return self._get_attr("label")
 
     @label.setter
@@ -197,6 +203,9 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # hover_color
     @property
     def hover_color(self) -> Optional[str]:
+        """
+        The [color](/docs/reference/colors) to be used when it is being hovered over by the mouse pointer.
+        """
         return self._get_attr("hoverColor")
 
     @hover_color.setter
@@ -206,6 +215,10 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # track_outline_color
     @property
     def track_outline_color(self) -> Union[None, str, Dict[ControlState, str]]:
+        """
+        The outline [color](/docs/reference/colors) of this switch's track in various [`ControlState`](/docs/reference/types/controlstate) states.
+        The following [`ControlState`](/docs/reference/types/controlstate) values are supported: `SELECTED`, `HOVERED`, `DISABLED`, `FOCUSED` and `DEFAULT` (fallback).
+        """
         return self.__track_outline_color
 
     @track_outline_color.setter
@@ -215,6 +228,10 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # overlay_color
     @property
     def overlay_color(self) -> Union[None, str, Dict[ControlState, str]]:
+        """
+        The [color](/docs/reference/colors) for the switch's Material in various [`ControlState`](/docs/reference/types/controlstate) states.
+        The following [`ControlState`](/docs/reference/types/controlstate) values are supported: `PRESSED`, `SELECTED`, `HOVERED`, `FOCUSED` and `DEFAULT`.
+        """
         return self.__overlay_color
 
     @overlay_color.setter
@@ -224,6 +241,9 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # splash_radius
     @property
     def splash_radius(self) -> OptionalNumber:
+        """
+        The radius of the splash effect when the switch is pressed.
+        """
         return self._get_attr("splashRadius", data_type="float")
 
     @splash_radius.setter
@@ -234,6 +254,11 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # label_style
     @property
     def label_style(self) -> Optional[TextStyle]:
+        """
+        The label's style.
+
+        Value is of type [`TextStyle`](/docs/reference/types/textstyle).
+        """
         return self.__label_style
 
     @label_style.setter
@@ -243,6 +268,9 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # label_position
     @property
     def label_position(self) -> Optional[LabelPosition]:
+        """
+        Value is of type [`LabelPosition`](/docs/reference/types/labelposition) and defaults to `LabelPosition.RIGHT`.
+        """
         return self.__label_position
 
     @label_position.setter
@@ -253,6 +281,10 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # mouse_cursor
     @property
     def mouse_cursor(self) -> Optional[MouseCursor]:
+        """
+        The cursor to be displayed when a mouse pointer enters or is hovering over this control.
+        The value is [`MouseCursor`](/docs/reference/types/mousecursor) enum.
+        """
         return self.__mouse_cursor
 
     @mouse_cursor.setter
@@ -263,6 +295,9 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # autofocus
     @property
     def autofocus(self) -> bool:
+        """
+        True if the control will be selected as the initial focus. If there is more than one control on a page with autofocus set, then the first one added to the page will get focus.
+        """
         return self._get_attr("autofocus", data_type="bool", def_value=False)
 
     @autofocus.setter
@@ -272,6 +307,9 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # active_color
     @property
     def active_color(self) -> Optional[str]:
+        """
+        The [color](/docs/reference/colors) to use when this switch is on.
+        """
         return self._get_attr("activeColor")
 
     @active_color.setter
@@ -281,6 +319,11 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # active_track_color
     @property
     def active_track_color(self) -> Optional[str]:
+        """
+        The [color](/docs/reference/colors) to use on the track when this switch is on.
+
+        If `track_color` returns a non-null color in the `selected` state, it will be used instead of this color.
+        """
         return self._get_attr("activeTrackColor")
 
     @active_track_color.setter
@@ -290,6 +333,9 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # focus_color
     @property
     def focus_color(self) -> Optional[str]:
+        """
+        The [color](/docs/reference/colors) to use for the focus highlight for keyboard interactions.
+        """
         return self._get_attr("focusColor")
 
     @focus_color.setter
@@ -299,6 +345,11 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # inactive_thumb_color
     @property
     def inactive_thumb_color(self) -> Optional[str]:
+        """
+        The [color](/docs/reference/colors) to use on the thumb when this switch is off.
+
+        If `thumb_color` returns a non-null color in the default state, it will be used instead of this color.
+        """
         return self._get_attr("inactiveThumbColor")
 
     @inactive_thumb_color.setter
@@ -308,6 +359,11 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # inactive_track_color
     @property
     def inactive_track_color(self) -> Optional[str]:
+        """
+        The [color](/docs/reference/colors) to use on the track when this switch is off.
+
+        If `track_color` returns a non-null color in the default state, it will be used instead of this color.
+        """
         return self._get_attr("inactiveTrackColor")
 
     @inactive_track_color.setter
@@ -317,6 +373,10 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # thumb_color
     @property
     def thumb_color(self) -> Union[None, str, Dict[ControlState, str]]:
+        """
+        The [color](/docs/reference/colors) of this switch's thumb in various [`ControlState`](/docs/reference/types/controlstate) states.
+        The following [`ControlState`](/docs/reference/types/controlstate) values are supported: `SELECTED`, `HOVERED`, `DISABLED`, `FOCUSED` and `DEFAULT` (fallback).
+        """
         return self.__thumb_color
 
     @thumb_color.setter
@@ -326,6 +386,10 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # thumb_icon
     @property
     def thumb_icon(self) -> Union[None, str, Dict[ControlState, str]]:
+        """
+        The icon of this Switch's thumb in various [`ControlState`](/docs/reference/types/controlstate) states.
+        The following [`ControlState`](/docs/reference/types/controlstate) values are supported: `SELECTED`, `HOVERED`, `DISABLED`, `FOCUSED` and `DEFAULT` (fallback).
+        """
         return self.__thumb_icon
 
     @thumb_icon.setter
@@ -335,6 +399,10 @@ class Switch(ConstrainedControl, AdaptiveControl):
     # track_color
     @property
     def track_color(self) -> Union[None, str, Dict[ControlState, str]]:
+        """
+        The [color](/docs/reference/colors) of this switch's track in various [`ControlState`](/docs/reference/types/controlstate) states.
+        The following [`ControlState`](/docs/reference/types/controlstate) values are supported: `SELECTED`, `HOVERED`, `DISABLED`, `FOCUSED` and `DEFAULT` (fallback).
+        """
         return self.__track_color
 
     @track_color.setter

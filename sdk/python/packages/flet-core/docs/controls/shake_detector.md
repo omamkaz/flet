@@ -1,0 +1,1 @@
+::: flet_core.shake_detector.ShakeDetector

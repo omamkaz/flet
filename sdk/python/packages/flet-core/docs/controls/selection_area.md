@@ -1,0 +1,1 @@
+::: flet_core.selection_area.SelectionArea

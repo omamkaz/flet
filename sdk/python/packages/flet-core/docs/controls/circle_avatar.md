@@ -1,0 +1,1 @@
+::: flet_core.circle_avatar.CircleAvatar

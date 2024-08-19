@@ -1,0 +1,1 @@
+::: flet_core.filled_tonal_button.FilledTonalButton

@@ -17,10 +17,9 @@ class Banner(Control):
 
     Banners are displayed at the top of the screen, below a top app bar. They are persistent and non-modal, allowing the user to either ignore them or interact with them at any time.
 
-    Example:
-    ```
+    # Example
+    ```python
     import flet as ft
-
 
     def main(page):
         page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
@@ -46,9 +45,7 @@ class Banner(Control):
 
         page.add(ft.ElevatedButton("Show Banner", on_click=lambda e: page.open(banner)))
 
-
     ft.app(main)
-    ```
 
     -----
 
@@ -80,7 +77,6 @@ class Banner(Control):
         visible: Optional[bool] = None,
         data: Any = None,
     ):
-
         Control.__init__(
             self,
             ref=ref,
@@ -134,6 +130,11 @@ class Banner(Control):
     # open
     @property
     def open(self) -> bool:
+        """
+        Determines whether the banner is open and visible.
+
+        Defaults to `False`. Set to `True` to display the banner.
+        """
         return self._get_attr("open", data_type="bool", def_value=False)
 
     @open.setter
@@ -143,6 +144,12 @@ class Banner(Control):
     # modal
     @property
     def modal(self) -> bool:
+        """
+        Determines whether the banner is modal.
+
+        Modal banners block user interaction with the rest of the interface until they are dismissed.
+        Defaults to `False`.
+        """
         return self._get_attr("modal", data_type="bool", def_value=False)
 
     @modal.setter
@@ -152,6 +159,11 @@ class Banner(Control):
     # leading
     @property
     def leading(self) -> Optional[Control]:
+        """
+        The leading control of the banner.
+
+        Typically an [Icon](/docs/controls/icon) control.
+        """
         return self.__leading
 
     @leading.setter
@@ -161,6 +173,11 @@ class Banner(Control):
     # leading_padding
     @property
     def leading_padding(self) -> PaddingValue:
+        """
+        The padding around the leading control.
+
+        Defaults to 16 virtual pixels.
+        """
         return self.__leading_padding
 
     @leading_padding.setter
@@ -170,6 +187,11 @@ class Banner(Control):
     # content
     @property
     def content(self) -> Control:
+        """
+        The content of the banner.
+
+        Typically a [Text](/docs/controls/text) control.
+        """
         return self.__content
 
     @content.setter
@@ -179,6 +201,12 @@ class Banner(Control):
     # content_padding
     @property
     def content_padding(self) -> PaddingValue:
+        """
+        The padding around the content.
+
+        If the actions are below the content, defaults to padding.only(left=16.0, top=24.0, right=16.0, bottom=4.0).
+        If the actions are trailing the content, defaults to padding.only(left=16.0, top=2.0).
+        """
         return self.__content_padding
 
     @content_padding.setter
@@ -188,6 +216,11 @@ class Banner(Control):
     # margin
     @property
     def margin(self) -> MarginValue:
+        """
+        The margin around the banner.
+
+        The value is an instance of [Margin](/docs/reference/types/margin) class or a number.
+        """
         return self.__margin
 
     @margin.setter
@@ -197,6 +230,11 @@ class Banner(Control):
     # actions
     @property
     def actions(self) -> List[Control]:
+        """
+        The actions displayed at the bottom or trailing side of the banner.
+
+        Typically a list of [TextButton](/docs/controls/textbutton) controls.
+        """
         return self.__actions
 
     @actions.setter
@@ -206,6 +244,12 @@ class Banner(Control):
     # force_actions_below
     @property
     def force_actions_below(self) -> bool:
+        """
+        Forces actions to be below the content regardless of how many there are.
+
+        Defaults to `False`. If `True`, actions are always placed below the content.
+        If `False`, actions are placed trailing if there is only one, otherwise below the content.
+        """
         return self._get_attr("forceActionsBelow", data_type="bool", def_value=False)
 
     @force_actions_below.setter
@@ -215,6 +259,11 @@ class Banner(Control):
     # bgcolor
     @property
     def bgcolor(self) -> Optional[str]:
+        """
+        The color of the banner's surface.
+
+        Defaults to `None`, meaning no specific background color is applied.
+        """
         return self._get_attr("bgColor")
 
     @bgcolor.setter
@@ -224,6 +273,11 @@ class Banner(Control):
     # content_text_style
     @property
     def content_text_style(self) -> Optional[TextStyle]:
+        """
+        The style used for the Text controls in the content.
+
+        Value is of type [TextStyle](/docs/reference/types/textstyle).
+        """
         return self.__content_text_style
 
     @content_text_style.setter
@@ -233,6 +287,9 @@ class Banner(Control):
     # shadow_color
     @property
     def shadow_color(self) -> Optional[str]:
+        """
+        The color of the shadow below the banner.
+        """
         return self._get_attr("shadowColor")
 
     @shadow_color.setter
@@ -242,6 +299,9 @@ class Banner(Control):
     # surface_tint_color
     @property
     def surface_tint_color(self) -> Optional[str]:
+        """
+        The color used as an overlay on `bgcolor` to indicate elevation.
+        """
         return self._get_attr("surfaceTintColor")
 
     @surface_tint_color.setter
@@ -251,6 +311,9 @@ class Banner(Control):
     # divider_color
     @property
     def divider_color(self) -> Optional[str]:
+        """
+        The color of the divider line, if applicable.
+        """
         return self._get_attr("dividerColor")
 
     @divider_color.setter
@@ -260,16 +323,24 @@ class Banner(Control):
     # elevation
     @property
     def elevation(self) -> OptionalNumber:
+        """
+        The elevation of the banner, which affects the shadow depth.
+
+        Defaults to `None`, meaning no specific elevation is applied. Elevation cannot be negative.
+        """
         return self._get_attr("elevation", data_type="float")
 
     @elevation.setter
     def elevation(self, value: OptionalNumber):
-        assert value is None or value >= 0, "elevation_on_scroll cannot be negative"
+        assert value is None or value >= 0, "elevation cannot be negative"
         self._set_attr("elevation", value)
 
     # on_visible
     @property
     def on_visible(self) -> OptionalControlEventCallable:
+        """
+        Event handler for when the banner is shown or made visible for the first time.
+        """
         return self._get_event_handler("visible")
 
     @on_visible.setter

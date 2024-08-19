@@ -1,0 +1,1 @@
+::: flet_core.expansion_panel.ExpansionPanel

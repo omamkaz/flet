@@ -140,20 +140,25 @@ class AppBar(AdaptiveControl):
     # leading
     @property
     def leading(self) -> Optional[Control]:
+        """
+        A `Control` to display before the toolbar's title.
+
+        Typically the leading control is an [`Icon`](/docs/controls/icon) or an [`IconButton`](/docs/controls/iconbutton).
+        """
         return self.__leading
 
     @leading.setter
     def leading(self, value: Optional[Control]):
-        """
-        A Control to display before the toolbar's title.
-
-        Typically the leading control is an Icon or an IconButton.
-        """
         self.__leading = value
 
     # leading_width
     @property
     def leading_width(self) -> OptionalNumber:
+        """
+        Defines the width of the leading control.
+
+        Value is of type [`OptionalNumber`](/docs/reference/types/aliases#optionalnumber) and defaults to `56.0`.
+        """
         return self._get_attr("leadingWidth")
 
     @leading_width.setter
@@ -163,6 +168,13 @@ class AppBar(AdaptiveControl):
     # title_spacing
     @property
     def title_spacing(self) -> OptionalNumber:
+        """
+        The spacing around the `title` on the horizontal axis. It is applied even if there are no `leading` or `actions` controls.
+
+        If you want `title` to take all the space available, set this value to `0.0`.
+
+        Value is of type [`OptionalNumber`](/docs/reference/types/aliases#optionalnumber).
+        """
         return self._get_attr("titleSpacing", data_type="float")
 
     @title_spacing.setter
@@ -172,6 +184,11 @@ class AppBar(AdaptiveControl):
     # toolbar_opacity
     @property
     def toolbar_opacity(self) -> float:
+        """
+        The opacity of the toolbar. Value ranges from `0.0` (transparent) to `1.0` (fully opaque).
+
+        Value is of type [`OptionalNumber`](/docs/reference/types/aliases#optionalnumber) and defaults to `1.0`.
+        """
         return self._get_attr("toolbarOpacity", data_type="float", def_value=1.0)
 
     @toolbar_opacity.setter
@@ -184,6 +201,11 @@ class AppBar(AdaptiveControl):
     # shape
     @property
     def shape(self) -> Optional[OutlinedBorder]:
+        """
+        The shape of the app bar's Material as well as its shadow.
+
+        Value is of type [`OutlinedBorder`](/docs/reference/types/outlinedborder).
+        """
         return self.__shape
 
     @shape.setter
@@ -193,6 +215,11 @@ class AppBar(AdaptiveControl):
     # title_text_style
     @property
     def title_text_style(self) -> Optional[TextStyle]:
+        """
+        The style to be used for the `Text` controls in the `title`.
+
+        Value is of type [`TextStyle`](/docs/reference/types/textstyle).
+        """
         return self.__title_text_style
 
     @title_text_style.setter
@@ -202,6 +229,11 @@ class AppBar(AdaptiveControl):
     # toolbar_text_style
     @property
     def toolbar_text_style(self) -> Optional[TextStyle]:
+        """
+        The style to be used for the `Text` controls in the app bar's `leading` and `actions` (but not `title`).
+
+        Value is of type [`TextStyle`](/docs/reference/types/textstyle).
+        """
         return self.__toolbar_text_style
 
     @toolbar_text_style.setter
@@ -211,6 +243,13 @@ class AppBar(AdaptiveControl):
     # automatically_imply_leading
     @property
     def automatically_imply_leading(self) -> bool:
+        """
+        Controls whether the leading widget should be implied if `leading` is `None`.
+
+        If `True` and `leading` is `None`, the system will automatically try to deduce what the leading widget should be. If `False` and `leading` is `None`, the leading space is given to the title. If a leading widget is provided, this parameter has no effect.
+
+        Value is of type `bool`.
+        """
         return self._get_attr(
             "automaticallyImplyLeading", data_type="bool", def_value=True
         )
@@ -222,6 +261,11 @@ class AppBar(AdaptiveControl):
     # title
     @property
     def title(self) -> Optional[Control]:
+        """
+        The primary widget displayed in the app bar, typically a `Text` widget.
+
+        The title is placed between the `leading` and `actions` widgets.
+        """
         return self.__title
 
     @title.setter
@@ -231,6 +275,13 @@ class AppBar(AdaptiveControl):
     # center_title
     @property
     def center_title(self) -> bool:
+        """
+        Whether the `title` is centered.
+
+        If set to `True`, the `title` widget will be centered within the app bar. Otherwise, the `title` will align to the start of the space between `leading` and `actions`.
+
+        Value is of type `bool`.
+        """
         return self._get_attr("centerTitle", data_type="bool", def_value=False)
 
     @center_title.setter
@@ -240,16 +291,25 @@ class AppBar(AdaptiveControl):
     # toolbar_height
     @property
     def toolbar_height(self) -> OptionalNumber:
-        return self._get_attr("toolbarHeight")
+        """
+        The height of the toolbar.
+
+        Value is of type [`OptionalNumber`](/docs/reference/types/aliases#optionalnumber).
+        """
+        return self._get_attr("toolbarHeight", data_type="float")
 
     @toolbar_height.setter
     def toolbar_height(self, value: OptionalNumber):
-        assert value is None or value >= 0, "toolbar_height cannot be negative"
         self._set_attr("toolbarHeight", value)
 
     # color
     @property
     def color(self) -> Optional[str]:
+        """
+        The foreground color to be used within the app bar, typically applied to text and iconography.
+
+        Value is of type `str`.
+        """
         return self._get_attr("color")
 
     @color.setter
@@ -259,15 +319,53 @@ class AppBar(AdaptiveControl):
     # bgcolor
     @property
     def bgcolor(self) -> Optional[str]:
+        """
+        The background color of the app bar.
+
+        Value is of type `str`.
+        """
         return self._get_attr("bgcolor")
 
     @bgcolor.setter
     def bgcolor(self, value: Optional[str]):
         self._set_attr("bgcolor", value)
 
+    # elevation
+    @property
+    def elevation(self) -> OptionalNumber:
+        """
+        The z-coordinate at which to place this app bar. This controls the size of the shadow below the app bar.
+
+        Value is of type [`OptionalNumber`](/docs/reference/types/aliases#optionalnumber).
+        """
+        return self._get_attr("elevation", data_type="float")
+
+    @elevation.setter
+    def elevation(self, value: OptionalNumber):
+        self._set_attr("elevation", value)
+
+    # elevation_on_scroll
+    @property
+    def elevation_on_scroll(self) -> OptionalNumber:
+        """
+        The elevation to be applied to the app bar when the user scrolls up.
+
+        Value is of type [`OptionalNumber`](/docs/reference/types/aliases#optionalnumber).
+        """
+        return self._get_attr("elevationOnScroll", data_type="float")
+
+    @elevation_on_scroll.setter
+    def elevation_on_scroll(self, value: OptionalNumber):
+        self._set_attr("elevationOnScroll", value)
+
     # shadow_color
     @property
     def shadow_color(self) -> Optional[str]:
+        """
+        The color of the shadow below the app bar.
+
+        Value is of type `str`.
+        """
         return self._get_attr("shadowColor")
 
     @shadow_color.setter
@@ -277,16 +375,54 @@ class AppBar(AdaptiveControl):
     # surface_tint_color
     @property
     def surface_tint_color(self) -> Optional[str]:
+        """
+        The color used as an overlay on the app bar when it has a background color.
+
+        Value is of type `str`.
+        """
         return self._get_attr("surfaceTintColor")
 
     @surface_tint_color.setter
     def surface_tint_color(self, value: Optional[str]):
         self._set_attr("surfaceTintColor", value)
 
+    # clip_behavior
+    @property
+    def clip_behavior(self) -> Optional[ClipBehavior]:
+        """
+        The content of the app bar will be clipped (or not) according to this option.
+
+        Value is of type [`ClipBehavior`](/docs/reference/types/clipbehavior).
+        """
+        return self._get_attr("clipBehavior")
+
+    @clip_behavior.setter
+    def clip_behavior(self, value: Optional[ClipBehavior]):
+        self._set_attr("clipBehavior", value)
+
+    # force_material_transparency
+    @property
+    def force_material_transparency(self) -> Optional[bool]:
+        """
+        Forces the app bar to use a material design with transparent background, even if it is not secondary.
+
+        Value is of type `bool`.
+        """
+        return self._get_attr("forceMaterialTransparency", data_type="bool")
+
+    @force_material_transparency.setter
+    def force_material_transparency(self, value: Optional[bool]):
+        self._set_attr("forceMaterialTransparency", value)
+
     # is_secondary
     @property
-    def is_secondary(self) -> bool:
-        return self._get_attr("isSecondary", data_type="bool", def_value=False)
+    def is_secondary(self) -> Optional[bool]:
+        """
+        Indicates whether the app bar is a secondary app bar.
+
+        Value is of type `bool`.
+        """
+        return self._get_attr("isSecondary", data_type="bool")
 
     @is_secondary.setter
     def is_secondary(self, value: Optional[bool]):
@@ -294,60 +430,28 @@ class AppBar(AdaptiveControl):
 
     # exclude_header_semantics
     @property
-    def exclude_header_semantics(self) -> bool:
-        return self._get_attr(
-            "excludeHeaderSemantics", data_type="bool", def_value=False
-        )
+    def exclude_header_semantics(self) -> Optional[bool]:
+        """
+        Whether to exclude the app bar's header semantics from the overall app bar semantics.
+
+        Value is of type `bool`.
+        """
+        return self._get_attr("excludeHeaderSemantics", data_type="bool")
 
     @exclude_header_semantics.setter
     def exclude_header_semantics(self, value: Optional[bool]):
         self._set_attr("excludeHeaderSemantics", value)
 
-    # force_material_transparency
-    @property
-    def force_material_transparency(self) -> bool:
-        return self._get_attr(
-            "forceMaterialTransparency", data_type="bool", def_value=False
-        )
-
-    @force_material_transparency.setter
-    def force_material_transparency(self, value: Optional[bool]):
-        self._set_attr("forceMaterialTransparency", value)
-
-    # elevation
-    @property
-    def elevation(self) -> OptionalNumber:
-        return self._get_attr("elevation")
-
-    @elevation.setter
-    def elevation(self, value: OptionalNumber):
-        assert value is None or value >= 0, "elevation cannot be negative"
-        self._set_attr("elevation", value)
-
-    # elevation_on_scroll
-    @property
-    def elevation_on_scroll(self) -> OptionalNumber:
-        return self._get_attr("elevationOnScroll")
-
-    @elevation_on_scroll.setter
-    def elevation_on_scroll(self, value: OptionalNumber):
-        assert value is None or value >= 0, "elevation_on_scroll cannot be negative"
-        self._set_attr("elevationOnScroll", value)
-
-    # clip_behavior
-    @property
-    def clip_behavior(self) -> Optional[ClipBehavior]:
-        return self._get_attr("clipBehavior")
-
-    @clip_behavior.setter
-    def clip_behavior(self, value: Optional[ClipBehavior]):
-        self._set_enum_attr("clipBehavior", value, ClipBehavior)
-
     # actions
     @property
     def actions(self) -> Optional[List[Control]]:
+        """
+        A list of `Control` objects displayed on the right side of the app bar.
+
+        Typically these controls are icons or buttons for various actions.
+        """
         return self.__actions
 
     @actions.setter
     def actions(self, value: Optional[List[Control]]):
-        self.__actions = value if value is not None else []
+        self.__actions = value

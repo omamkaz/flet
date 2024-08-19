@@ -1,0 +1,1 @@
+::: flet_core.progress_bar.ProgressBar

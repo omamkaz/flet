@@ -19,10 +19,17 @@ try:
 except ImportError:
     from typing_extensions import Literal
 
-TransitionValueString = Literal["fade", "rotation", "scale"]
-
 
 class AnimatedSwitcherTransition(Enum):
+    """
+    Enum representing the types of transitions available for the `AnimatedSwitcher`.
+
+    Attributes:
+        FADE (str): Fade transition.
+        ROTATION (str): Rotation transition.
+        SCALE (str): Scale transition.
+    """
+
     FADE = "fade"
     ROTATION = "rotation"
     SCALE = "scale"
@@ -32,8 +39,8 @@ class AnimatedSwitcher(ConstrainedControl):
     """
     A control that by default does a cross-fade between a new control and the control previously set on the AnimatedSwitcher as a `content`.
 
-    Example:
-    ```
+    # Example
+    ```python
     import flet as ft
 
     def main(page: ft.Page):
@@ -167,6 +174,12 @@ class AnimatedSwitcher(ConstrainedControl):
     # content
     @property
     def content(self) -> Control:
+        """
+        The content to display. When the `content` changes, the AnimatedSwitcher will animate the transition from the
+        old `content` to the new one.
+
+        Value is of type `Control`.
+        """
         return self.__content
 
     @content.setter
@@ -176,6 +189,11 @@ class AnimatedSwitcher(ConstrainedControl):
     # duration
     @property
     def duration(self) -> int:
+        """
+        The duration, in milliseconds, of the transition from the old `content` value to the new one.
+
+        Value is of type `int` and defaults to `1000` milliseconds.
+        """
         return self._get_attr("duration", data_type="int", def_value=1000)
 
     @duration.setter
@@ -185,6 +203,11 @@ class AnimatedSwitcher(ConstrainedControl):
     # reverse_duration
     @property
     def reverse_duration(self) -> int:
+        """
+        The duration, in milliseconds, of the transition from the new `content` value to the old one.
+
+        Value is of type `int` and defaults to `1000` milliseconds.
+        """
         return self._get_attr("reverseDuration", data_type="int", def_value=1000)
 
     @reverse_duration.setter
@@ -194,6 +217,9 @@ class AnimatedSwitcher(ConstrainedControl):
     # switch_in_curve
     @property
     def switch_in_curve(self) -> Optional[AnimationCurve]:
+        """
+        The animation curve to use when transitioning in a new `content`.
+        """
         return self.__switch_in_curve
 
     @switch_in_curve.setter
@@ -204,6 +230,9 @@ class AnimatedSwitcher(ConstrainedControl):
     # switch_out_curve
     @property
     def switch_out_curve(self) -> Optional[AnimationCurve]:
+        """
+        The animation curve to use when transitioning a previous `content` out.
+        """
         return self.__switch_out_curve
 
     @switch_out_curve.setter
@@ -214,6 +243,9 @@ class AnimatedSwitcher(ConstrainedControl):
     # transition
     @property
     def transition(self) -> Optional[AnimatedSwitcherTransition]:
+        """
+        An animation type to transition between new and old `content`.
+        """
         return self.__transition
 
     @transition.setter

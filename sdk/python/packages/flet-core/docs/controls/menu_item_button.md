@@ -1,0 +1,1 @@
+::: flet_core.menu_item_button.MenuItemButton

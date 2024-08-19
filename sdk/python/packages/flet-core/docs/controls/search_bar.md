@@ -1,0 +1,1 @@
+::: flet_core.search_bar.SearchBar

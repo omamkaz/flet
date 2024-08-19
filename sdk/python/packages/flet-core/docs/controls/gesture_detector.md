@@ -1,0 +1,1 @@
+::: flet_core.gesture_detector.GestureDetector

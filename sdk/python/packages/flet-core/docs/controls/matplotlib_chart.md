@@ -1,0 +1,1 @@
+::: flet_core.matplotlib_chart.MatplotlibChart

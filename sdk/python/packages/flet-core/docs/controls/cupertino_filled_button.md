@@ -1,0 +1,1 @@
+::: flet_core.cupertino_filled_button.CupertinoFilledButton

@@ -14,8 +14,8 @@ class Badge(Control):
     Badges are used to show notifications, counts, or status information on navigation items such as NavigationBar or NavigationRail destinations
     or a button's icon.
 
-    Example:
-    ```
+    # Example
+    ```python
     import flet as ft
 
     def main(page: ft.Page):
@@ -39,9 +39,6 @@ class Badge(Control):
 
 
     ft.app(target=main)
-
-
-
     ```
 
     -----
@@ -109,7 +106,8 @@ class Badge(Control):
     # alignment
     @property
     def alignment(self) -> Optional[Alignment]:
-        """:obj:`Alignment`, optional: Align the child control within the container.
+        """
+        Aligns the label relative to the content of the badge.
 
         Alignment is an instance of `alignment.Alignment` class object with `x` and `y` properties
         representing the distance from the center of a rectangle.
@@ -123,6 +121,11 @@ class Badge(Control):
     # text
     @property
     def text(self) -> Optional[str]:
+        """
+        The text shown on badge's label, typically 1 to 4 characters.
+
+        If the text is not provided, the badge is shown as a filled circle of `small_size` diameter.
+        """
         return self._get_attr("labelText")
 
     @text.setter
@@ -132,6 +135,9 @@ class Badge(Control):
     # content
     @property
     def content(self) -> Optional[Control]:
+        """
+        A child `Control` contained by the badge, typically an icon that's part of a NavigationBar or a NavigationRail destination or a button's icon.
+        """
         return self.__content
 
     @content.setter
@@ -141,6 +147,11 @@ class Badge(Control):
     # offset
     @property
     def offset(self) -> OffsetValue:
+        """
+        Combined with `alignment` to determine the location of the label relative to the content.
+
+        Has effect only if `text` is also provided.
+        """
         return self.__offset
 
     @offset.setter
@@ -150,6 +161,9 @@ class Badge(Control):
     # bgcolor
     @property
     def bgcolor(self) -> Optional[str]:
+        """
+        Background color of the label.
+        """
         return self._get_attr("bgColor")
 
     @bgcolor.setter
@@ -159,6 +173,9 @@ class Badge(Control):
     # label_visible
     @property
     def label_visible(self) -> bool:
+        """
+        If False, label is not displayed. By default, `label_visible` is True. It can be used to create a badge that's only shown under certain conditions.
+        """
         return self._get_attr("isLabelVisible", data_type="bool", def_value=True)
 
     @label_visible.setter
@@ -168,6 +185,11 @@ class Badge(Control):
     # large_size
     @property
     def large_size(self) -> OptionalNumber:
+        """
+        The badge's label height if `text` is provided.
+
+        If the default value is overridden then it may be useful to also override `padding` and `alignment`.
+        """
         return self._get_attr("largeSize")
 
     @large_size.setter
@@ -177,6 +199,11 @@ class Badge(Control):
     # padding
     @property
     def padding(self) -> PaddingValue:
+        """
+        The padding added to the badge's label.
+
+        This value is only used if `text` is provided. Defaults to 4 pixels on the left and right.
+        """
         return self.__padding
 
     @padding.setter
@@ -186,6 +213,11 @@ class Badge(Control):
     # small_size
     @property
     def small_size(self) -> OptionalNumber:
+        """
+        The badge's label diameter if `text` is not provided.
+
+        If `text` is not provided, the badge is shown as a filled circle of `small_size` diameter.
+        """
         return self._get_attr("smallSize")
 
     @small_size.setter
@@ -195,6 +227,9 @@ class Badge(Control):
     # text_color
     @property
     def text_color(self) -> Optional[str]:
+        """
+        Color of the text shown in the label. This color overrides the color of the label's `text_style`.
+        """
         return self._get_attr("textColor")
 
     @text_color.setter
@@ -204,6 +239,9 @@ class Badge(Control):
     # text_style
     @property
     def text_style(self) -> Optional[TextStyle]:
+        """
+        The text style to use for text in the label.
+        """
         return self.__text_style
 
     @text_style.setter
