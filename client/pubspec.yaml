@@ -65,13 +65,6 @@ dependencies:
 dependency_overrides:
   record_web: ^1.1.0
 
-  # temporary solution - not for production
-  permission_handler_html:
-    git:
-      url: https://github.com/raldhafiri/flutter-permission-handler.git
-      ref: f17af950fdba75da509f7a3daca9230524c09e0b
-      path: permission_handler_html
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
