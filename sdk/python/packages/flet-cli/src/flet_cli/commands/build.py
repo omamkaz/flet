@@ -1154,7 +1154,7 @@ class Command(BaseCommand):
             requirements_txt = python_app_path.joinpath("requirements.txt")
             if requirements_txt.exists():
                 package_args.extend(["--requirements", f"-r,{requirements_txt}"])
-            elif pyproject_toml is not None:
+            elif len(pyproject_toml) > 0:
                 from flet_cli.utils.convert_toml_to_requirements import (
                     convert_toml_to_requirements,
                 )
