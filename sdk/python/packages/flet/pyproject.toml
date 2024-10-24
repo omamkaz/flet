@@ -28,7 +28,7 @@ pytest = "^7.2.0"
 cryptography = "^39.0.0"
 
 [tool.poetry.scripts]
-flet = "flet.cli:main"
+flet = "flet.cli.main:main"
 
 [build-system]
 requires = ["poetry-core"]
