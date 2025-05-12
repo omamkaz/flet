@@ -134,21 +134,23 @@ class Control:
         if name not in self.__attrs:
             return def_value
         s_val = self.__attrs[name][0]
-        if data_type == "bool" and s_val is not None and isinstance(s_val, str):
+        if not isinstance(s_val, str):
+            return s_val
+
+        if data_type == "bool":
             return s_val.lower() == "true"
-        elif data_type == "bool?" and isinstance(s_val, str):
+        elif data_type == "bool?":
             if s_val.lower() == "true":
                 return True
             elif s_val.lower() == "false":
                 return False
             else:
                 return def_value
-        elif data_type == "float" and s_val is not None and isinstance(s_val, str):
+        elif data_type == "float":
             return float(s_val)
-        elif data_type == "int" and s_val is not None and isinstance(s_val, str):
+        elif data_type == "int":
             return int(s_val)
-        else:
-            return s_val
+        return s_val
 
     def _set_attr(self, name: str, value: V, dirty: bool = True) -> None:
         self._set_attr_internal(name, value, dirty)
